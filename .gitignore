@@ -1,0 +1,4 @@
+features_report.html
+*.log
+*.sqlite3
+tmp

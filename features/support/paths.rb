@@ -7,10 +7,14 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the home\s?page/
       '/'
-    
+
+    when /the list of projects/
+      projects_path
+
+
     # Add more mappings here.
     # Here is a more fancy example:
     #
@@ -25,3 +29,4 @@ module NavigationHelpers
 end
 
 World(NavigationHelpers)
+

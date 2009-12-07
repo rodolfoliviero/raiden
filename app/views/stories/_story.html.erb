@@ -1,0 +1,9 @@
+<% div_for story do %>
+
+<p>
+  <b>Name:</b> <%=h story.name %>
+  <%= link_to 'Destroy story', project_stories_path(:project_id => @project.id), :confirm => 'Are you sure?', :method => :delete, :id => story.id %>
+</p>
+
+<% end %>
+

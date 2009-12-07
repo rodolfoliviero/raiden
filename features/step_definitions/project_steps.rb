@@ -12,3 +12,9 @@ Then /^I should have ([0-9]+) project$/ do |count|
   Project.count.should == count.to_i
 end
 
+Given /^(.+) has stories named (.+)$/ do |project, names|
+  names.split(', ').each do |name|
+    Project.find_by_name(project).stories.build(:name => name).save
+  end
+end
+

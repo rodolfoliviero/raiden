@@ -10,6 +10,9 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new story page/
+      new_story_path
+
 
     when /the list of projects/
       projects_path

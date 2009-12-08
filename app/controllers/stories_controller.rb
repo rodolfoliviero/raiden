@@ -48,12 +48,10 @@ class StoriesController < ApplicationController
 
   # DELETE /stories/1
   def destroy
+    @project = Project.find(params[:project_id])
     @story = Story.find(params[:id])
     @story.destroy
-
-    respond_to do |format|
-      redirect_to(stories_url)
-    end
+    redirect_to @project
   end
 end
 

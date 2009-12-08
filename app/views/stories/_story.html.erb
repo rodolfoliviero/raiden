@@ -2,7 +2,11 @@
 
 <p>
   <b>Name:</b> <%=h story.name %>
-  <%= link_to 'Destroy story', project_stories_path(:project_id => @project.id), :confirm => 'Are you sure?', :method => :delete, :id => story.id %>
+  <%= link_to 'Destroy story', project_story_path(@project, story), :confirm => 'Are you sure?',
+  :method => :delete, :action => "destroy" %>
+  <%=
+
+ %>
 </p>
 
 <% end %>

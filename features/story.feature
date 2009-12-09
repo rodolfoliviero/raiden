@@ -18,7 +18,6 @@ Feature: Manage stories
         And I should see "New story"
         And I should have 1 stories
 
-
    Scenario: Destroy story
         Given I have project named Tiberius
         And Tiberius has story named "empire"

@@ -11,20 +11,19 @@ class StoriesController < ApplicationController
     @story = @project.stories.build((params[:story]))
     @story.save
     flash[:notice] = 'Story was successfully created.'
-    redirect_to @project
+    redirect_to project_path(@project)
   end
 
   # DELETE /stories/1
   def destroy
     @story = Story.find(params[:id])
     @story.destroy
-    redirect_to @project
+    redirect_to project_path(@project)
   end
 
-  private
-    def load_project
-       @project = Project.find(params[:project_id])
-    end
+  def load_project
+    @project = Project.find(params[:project_id])
+  end
 
 end
 

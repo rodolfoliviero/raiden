@@ -4,7 +4,6 @@ describe StoriesController do
 
   before :all do
     @project_id = "2"
-    Project.stub!(:find).with(@project_id).and_return(mock_project)
   end
 
   def mock_story(stubs={})
@@ -17,41 +16,51 @@ describe StoriesController do
 
   describe "GET new" do
     it "assigns project as @project" do
+      Project.stub!(:find).with(@project_id).and_return(mock_project)
       get :new, :project_id => @project_id
       assigns[:project].should equal(mock_project)
     end
   end
 
   describe "POST create" do
-
     describe "with valid params" do
-      it "assigns a newly created story as @story" do
-        Story.stub!(:new).with({'these' => 'params'}).and_return(mock_story(:save => true))
-        post :create, :story => {:these => 'params'}, :project_id => @project_id
-        assigns[:story].should equal(mock_story)
+
+      before :all do
+         @project = Project.new
+         @project.id = @project_id
       end
 
-      it "redirects to the created story" do
-        Story.stub!(:new).and_return(mock_story(:save => true))
-        post :create, :story => {}, :project_id => @project_id
-        response.should redirect_to(story_url(mock_story))
+      it "assigns a newly created story as @story" do
+        Project.stub!(:find).with(@project_id).and_return(@project)
+        @project.stories.stub!(:build).with({"these"=>"params"}).and_return(mock_story(:save => true))
+        post :create, :story => {:these => 'params'}, :project_id => @project_id
+        assigns[:project].should equal(@project)
+      end
+
+      it "redirects to the project" do
+        Project.stub!(:find).with(@project_id).and_return(@project)
+        @project.stories.stub!(:build).with({"these"=>"params"}).and_return(mock_story(:save => true))
+        post :create, :story => {"these"=>"params"}, :project_id => @project_id
+        response.should redirect_to(project_path(@project))
       end
     end
 
   end
 
   describe "DELETE destroy" do
-
     it "destroys the requested story" do
+      Project.stub!(:find).with(@project_id).and_return(mock_project)
       Story.should_receive(:find).with("37").and_return(mock_story)
       mock_story.should_receive(:destroy)
       delete :destroy, :id => "37", :project_id => @project_id
+      assigns[:project].should equal(mock_project)
     end
 
     it "redirects to the project" do
       Story.stub!(:find).and_return(mock_story(:destroy => true))
+      Project.stub!(:find).with(@project_id).and_return(mock_project)
       delete :destroy, :id => "1", :project_id => @project_id
-      response.should redirect_to(mock_project)
+      response.should redirect_to(project_path(mock_project))
     end
   end
 

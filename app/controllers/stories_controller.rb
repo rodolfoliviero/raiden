@@ -6,7 +6,7 @@ class StoriesController < ApplicationController
   def new
   end
 
-  # POST /stories
+  # POST
   def create
     @story = @project.stories.build((params[:story]))
     @story.save

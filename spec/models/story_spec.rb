@@ -14,7 +14,7 @@ describe Story do
     Story.create!(@valid_attributes)
   end
 
-   it "should cascade when delete project" do
+   it "should cascade when delete story" do
      should have_many(:tasks, :dependent => :delete_all)
   end
 end

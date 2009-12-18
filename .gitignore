@@ -1,5 +1,6 @@
 features_report.html
-*.log
+log
 *.sqlite3
 tmp
 db/schema.rb
+rerun.txt

@@ -10,13 +10,9 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
-    when /the new story page/
-      new_story_path
 
-
-    when /the list of projects/
+    when /list of projects/
       projects_path
-
 
     # Add more mappings here.
     # Here is a more fancy example:

@@ -1,13 +1,31 @@
-<p>
-  <b>Name:</b>
-  <%=h @project.name %>
-</p>
+<h1><%=h @project.name %></h1>
 
 <div id="stories">
+  <p>Stories</p>
   <%= render :partial => @project.stories %>
 </div>
 
-<%= link_to 'New story', new_project_story_path(:project_id => @project.id) %>
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<p><b>New story</b></p>
+
+<% form_remote_for [@project, Story.new] do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :points %><br />
+    <%= f.text_field :points %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
 <%= link_to 'Back', projects_path %>
 

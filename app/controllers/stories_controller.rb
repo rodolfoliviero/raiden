@@ -10,8 +10,6 @@ class StoriesController < ApplicationController
   def create
     @story = @project.stories.build((params[:story]))
     @story.save
-    flash[:notice] = 'Story was successfully created.'
-    redirect_to project_path(@project)
   end
 
   # DELETE /stories/1

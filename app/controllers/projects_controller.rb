@@ -17,9 +17,8 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to(projects_url)
+    Project.find(params[:id]).destroy
+    @projects = Project.all
   end
 end
 

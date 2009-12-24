@@ -37,10 +37,10 @@ describe ProjectsController do
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the projects list" do
-      Project.stub!(:find).and_return(mock_project(:destroy => true))
+    it "assigns projects" do
+      Project.stub!(:all).and_return(mock_project)
       delete :destroy, :id => "1"
-      response.should redirect_to(projects_url)
+      assigns[:projects].should equal(mock_project)
     end
   end
 

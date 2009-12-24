@@ -30,4 +30,5 @@ config.action_mailer.delivery_method = :test
 config.gem 'remarkable_rails', :lib => false
 config.gem 'rspec-rails', :lib => false
 config.gem 'rspec', :lib => false
+config.gem 'metric_fu', :lib => 'metric_fu'
 

@@ -8,14 +8,14 @@ Feature: Manage stories
         And I have no story
         And I am on the list of projects
         And I follow "Show"
-        When I follow "New story"
         And I fill in "Name" with "New story"
         And I fill in "Description" with "Description"
         And I fill in "points" with "5"
         And I press "Create"
-        Then I should see "Story was successfully created"
         And I should see "Tiberius"
         And I should see "New story"
+        And I should see "Description"
+        And I should see "5"
         And I should have 1 stories
 
    Scenario: Destroy story

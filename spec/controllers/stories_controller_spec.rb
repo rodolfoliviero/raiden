@@ -37,12 +37,6 @@ describe StoriesController do
         assigns[:project].should equal(@project)
       end
 
-      it "redirects to the project" do
-        Project.stub!(:find).with(@project_id).and_return(@project)
-        @project.stories.stub!(:build).with({"these"=>"params"}).and_return(mock_story(:save => true))
-        post :create, :story => {"these"=>"params"}, :project_id => @project_id
-        response.should redirect_to(project_path(@project))
-      end
     end
 
   end
@@ -54,13 +48,6 @@ describe StoriesController do
       mock_story.should_receive(:destroy)
       delete :destroy, :id => "37", :project_id => @project_id
       assigns[:project].should equal(mock_project)
-    end
-
-    it "redirects to the project" do
-      Story.stub!(:find).and_return(mock_story(:destroy => true))
-      Project.stub!(:find).with(@project_id).and_return(mock_project)
-      delete :destroy, :id => "1", :project_id => @project_id
-      response.should redirect_to(project_path(mock_project))
     end
   end
 

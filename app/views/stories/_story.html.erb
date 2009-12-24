@@ -1,12 +1,10 @@
+<p>Stories</p>
 <% div_for story do %>
 
 <p>
   <b>Name:</b> <%=h story.name %>
-  <%= link_to 'Remove', project_story_path(@project, story), :confirm => 'Are you sure?',
-  :method => :delete, :action => "destroy" %>
-  <%=
-
- %>
+  <%= link_to_remote "Destroy", :url => project_story_path(@project, story),
+  :method => :delete, :confirm => "Are you sure?" %>
 </p>
 
 <% end %>

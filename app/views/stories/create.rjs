@@ -1,0 +1,4 @@
+page.insert_html :bottom, :stories, :partial => @story
+page[:new_story].reset
+page[@project].visual_effect :highlight
+

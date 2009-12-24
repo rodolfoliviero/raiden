@@ -32,13 +32,16 @@ describe ProjectsController do
 
   describe "DELETE destroy" do
     it "destroys the requested project" do
+      Project.stub!(:all)
       Project.should_receive(:find).with("37").and_return(mock_project)
       mock_project.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
     it "assigns projects" do
-      Project.stub!(:all).and_return(mock_project)
+      Project.stub!(:find).with("1").and_return(mock_project)
+      mock_project.stub!(:destroy)
+      Project.should_receive(:all).and_return(mock_project)
       delete :destroy, :id => "1"
       assigns[:projects].should equal(mock_project)
     end

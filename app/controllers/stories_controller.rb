@@ -14,9 +14,7 @@ class StoriesController < ApplicationController
 
   # DELETE /stories/1
   def destroy
-    @story = Story.find(params[:id])
-    @story.destroy
-    redirect_to project_path(@project)
+    Story.find(params[:id]).destroy
   end
 
   def load_project

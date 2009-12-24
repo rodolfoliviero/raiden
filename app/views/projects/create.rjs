@@ -1,0 +1,4 @@
+page.insert_html :bottom, :projects, :partial => @project
+page[:new_project].reset
+page[@project].visual_effect :highlight
+

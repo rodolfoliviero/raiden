@@ -1,21 +1,17 @@
 <h1>Listing projects</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+<div id="projects">
+  <%= render :partial => @projects %>
+</div>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%=h project.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<p><b>New project</b></p>
+<% form_remote_for(Project.new) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New project', new_project_path %>
 

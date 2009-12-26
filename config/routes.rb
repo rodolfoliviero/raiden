@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :projects, :has_many => :stories
+  #map.resources :projects, :has_many => :stories
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -21,10 +21,9 @@ ActionController::Routing::Routes.draw do |map|
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
 
   # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
+     map.resources :projects do |projects|
+       projects.resources :stories, :has_many => :tasks
+     end
 
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|

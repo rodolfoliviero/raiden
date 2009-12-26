@@ -1,0 +1,3 @@
+page.insert_html :bottom, "#story_#{@story.id}_tasks", :partial => @task
+page.replace_html :form_task, ''
+

@@ -1,6 +1,5 @@
 <% div_for project do %>
-    <%=h project.name %>
-    <%= link_to 'Show', project %>
+    <%= link_to project.name, project %>
     <%= link_to_remote "Destroy", :url => project_url(project), :method => :delete, :confirm => "Are you sure?" %>
 <% end %>
 

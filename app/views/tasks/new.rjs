@@ -1,0 +1,2 @@
+page.replace_html :form_task, :partial => 'tasks/new', :object => @story
+

@@ -1,0 +1,11 @@
+<p><b>Task</b></p>
+    <% form_remote_for [@story.project, @story, Task.new] do |f| %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+

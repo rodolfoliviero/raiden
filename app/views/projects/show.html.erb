@@ -30,3 +30,62 @@
 
 <%= link_to 'Back', projects_path %>
 
+<div style="" id="scrumy-board-container">
+
+<table cellspacing="0" class="live" id="scrumy-board">
+  <tbody id="scrumy-board-body">
+    <tr id="scrumy-board-header" style="position: relative;">
+        <th class="story-handle" id="story-header">
+            <span>Stories</span>
+        </th>
+        <th id="todo-header">
+            <span>To Do</span><a style="display: none;" class="select-all" href="#">Select All</a>
+        </th>
+        <th id="inprogress-header">
+            <span>In Progress</span><a style="display: none;" class="select-all" href="#">Select All</a>
+        </th>
+        <th id="done-header">
+            <span>Done</span>
+        </th>
+    </tr>
+    <tr class="story-task-row" id="story_100082" style="position: relative;">
+      <td class="stories" id="story-100082-title">
+        <div class="story" id="story_editor_100082">
+        <div class="story-handle">
+          <span class="title">
+            Historia 1
+          </span>
+        </div>
+        <a class="delete-story" href="" observedactions="click">Delete</a>
+        </div>
+      </td>
+      <td class="plus">
+        <div class="plus-button">
+          <a href="#" observedactions="click"><img src="/images/plus.gif"/></a>
+        </div>
+      </td>
+      <td class="todo" id="story-100082-todo" style="position: relative;"><!-- To Do -->
+      <!-- inicio task -->
+        <div id="task_276182" class="task white">
+          <div class="handle"> </div>
+          <div class="title">
+            <pre class="title_inner">tarefa 1</pre>
+          </div>
+          <a class="delete-task" href="" observedactions="click">Delete</a>
+          <img src="/images/overflow_indicator.gif" class="overflow_indicator"/>
+        </div>
+        <!-- fim task -->
+      </td>
+      <td class="inprogress" id="story-100082-inprogress" style="position: relative;"><!-- In Progress --></td>
+      <td class="done" id="story-100082-done" style="position: relative;"><!-- Done --></td>
+    </tr> <!-- story-task-row-->
+    <!-- nova historia -->
+    <tr id="new-story-row" class="new_story_row">
+      <td class="stories" id="new_story_box">
+        <a href="#" id="new_story_link" observedactions="click">New story</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+

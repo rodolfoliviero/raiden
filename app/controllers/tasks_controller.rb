@@ -10,5 +10,8 @@ class TasksController < ApplicationController
     @story = Story.find(params[:story_id])
   end
 
+  def change
+  end
+
 end
 

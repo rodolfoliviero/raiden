@@ -1,0 +1,32 @@
+<h1><%=h @project.name %></h1>
+
+<p>Stories</p>
+<div id="stories">
+  <%= render :partial => @project.stories %>
+</div>
+
+<p><b>New story</b></p>
+
+<% form_remote_for [@project, Story.new] do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :points %><br />
+    <%= f.text_field :points %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<div id="form_task">
+</div>
+
+<%= link_to 'Back', projects_path %>
+

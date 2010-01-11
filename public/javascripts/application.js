@@ -1,2 +1,11 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+		$("#taks_drop").draggable();
+		$("#taks_drop2").droppable({
+		    accept: '#taks_drop',
+			drop: function(event, prop) {
+			    $("#display_container").load("/tasks/change");
+			}
+		});
+
+	});
+
